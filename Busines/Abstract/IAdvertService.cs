@@ -1,0 +1,19 @@
+﻿using Core.Utilities.Results;
+using Entity.Concrete;
+using Entity.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Busines.Abstract
+{
+    public interface IAdvertService
+    {
+        IResult Add(Advert advert);
+        IResult Update(Advert advert);
+        IResult Delete(Advert advert);
+        IDataResult<List<Advert>> GetAll();
+        IDataResult<List<AdvertDetailDto>> GetAllDetails();
+        IDataResult<Advert> GetById(int Id);
+    }
+}
