@@ -62,5 +62,12 @@ namespace Busines.Concrete
 
             return new SuccessDataResult<List<AdvertDetailDto>>(allDatas);
         }
+
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByCategoryId(int categoryId)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a=>a.AdvertCategoryId == categoryId));
+        }
+
+       
     }
 }

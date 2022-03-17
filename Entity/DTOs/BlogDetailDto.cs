@@ -12,6 +12,7 @@ namespace Entity.DTOs
         public string Text { get; set; }
         public int View { get; set; }
         public DateTime AddDate { get; set; }
+        public string ShortText { get; set; }
         public DateTime UpdateDate { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }

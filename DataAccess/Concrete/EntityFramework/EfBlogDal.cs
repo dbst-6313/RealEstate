@@ -25,6 +25,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  CategoryName = c.Name,
                                  Header = a.Header,
                                  Id = a.Id,
+                                 ShortText = a.ShortText,
                                  Images = (from i in context.blogs_image where i.BlogId == a.Id select i.ImagePath).ToList(),
                                  Text = a.Text,
                                  UpdateDate = a.UpdateDate,

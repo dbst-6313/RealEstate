@@ -38,7 +38,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
-
+        [HttpGet("getalldetailsbycategory")]
+        public IActionResult GetAllDetailsByCategory(int categoryId)
+        {
+            var result = _BlogService.GetAllDetailsByCategoryId(categoryId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpGet("getalldetailsbyid")]
         public IActionResult GetAllDetailsById(int id)
         {

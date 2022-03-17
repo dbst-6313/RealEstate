@@ -10,6 +10,7 @@ namespace Entity.Concrete
         public int Id { get; set; }
         public string Header { get; set; }
         public string Text { get; set; }
+        public string ShortText { get; set; }
         public int View { get; set; } = 0;
         public DateTime AddDate { get; set; }
         public DateTime UpdateDate { get; set; }

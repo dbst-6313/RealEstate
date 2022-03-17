@@ -14,6 +14,7 @@ namespace Busines.Abstract
         IResult Delete(Blog blog);
         IDataResult<List<Blog>> GetAll();
         IDataResult<List<BlogDetailDto>> GetAllDetails();
+        IDataResult<List<BlogDetailDto>> GetAllDetailsByCategoryId(int categoryId);
         IDataResult<List<BlogDetailDto>> GetAllDetailsById(int id);
         IDataResult<Blog> GetById(int Id);
     }
