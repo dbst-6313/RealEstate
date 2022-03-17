@@ -16,7 +16,7 @@ namespace Busines.Abstract
         IDataResult<List<AdvertDetailDto>> GetAllAdvertsByAsc();
         IDataResult<List<AdvertDetailDto>> GetAllDetails();
         IDataResult<List<AdvertDetailDto>> GetAllDetailsByCategoryId(int categoryId);
-      
+        IDataResult<List<AdvertDetailDto>> GetAllAdvertsByDsc();
         IDataResult<Advert> GetById(int Id);
         IDataResult<List<AdvertDetailDto>> GetAllDetailsById(int id);
     }

@@ -62,7 +62,13 @@ namespace Busines.Concrete
 
             return new SuccessDataResult<List<AdvertDetailDto>>(allDatas);
         }
+        public IDataResult<List<AdvertDetailDto>> GetAllAdvertsByDsc()
+        {
+            var allDatas = _advertDal.GetAdvertDetails();
+            allDatas.Sort((a, b) => a.Price.CompareTo(b.Price));
 
+            return new SuccessDataResult<List<AdvertDetailDto>>(allDatas);
+        }
         public IDataResult<List<AdvertDetailDto>> GetAllDetailsByCategoryId(int categoryId)
         {
             return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a=>a.AdvertCategoryId == categoryId));
