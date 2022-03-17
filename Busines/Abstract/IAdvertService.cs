@@ -13,7 +13,9 @@ namespace Busines.Abstract
         IResult Update(Advert advert);
         IResult Delete(Advert advert);
         IDataResult<List<Advert>> GetAll();
+        IDataResult<List<AdvertDetailDto>> GetAllAdvertsByAsc();
         IDataResult<List<AdvertDetailDto>> GetAllDetails();
         IDataResult<Advert> GetById(int Id);
+        IDataResult<List<AdvertDetailDto>> GetAllDetailsById(int id);
     }
 }

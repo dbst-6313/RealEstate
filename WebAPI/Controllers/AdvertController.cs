@@ -17,7 +17,16 @@ namespace WebApi.Controllers
         {
             _AdvertService = AdvertService;
         }
-
+        [HttpGet("getallbyasc")]
+        public IActionResult GetAllAdvertsByAsc()
+        {
+            var result = _AdvertService.GetAllAdvertsByAsc();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
@@ -28,7 +37,7 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
-
+        
         [HttpGet("getalldetails")]
         public IActionResult GetAllDetails()
         {
@@ -39,6 +48,17 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getalldetailsbyid")]
+        public IActionResult GetAllDetailsById(int id)
+        {
+            var result = _AdvertService.GetAllDetailsById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
 
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)

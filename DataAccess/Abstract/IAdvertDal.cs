@@ -11,5 +11,6 @@ namespace DataAccess.Abstract
     public interface IAdvertDal:IEntityRepository<Advert>
     {
         List<AdvertDetailDto> GetAdvertDetails(Expression<Func<Advert, bool>> filter = null);
+        List<AdvertDetailDto> GetAdvertDetailsById(int id);
     }
 }

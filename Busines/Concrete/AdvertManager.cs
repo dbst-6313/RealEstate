@@ -5,6 +5,7 @@ using Entity.Concrete;
 using Entity.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Busines.Concrete
@@ -34,7 +35,10 @@ namespace Busines.Concrete
         {
             return new SuccessDataResult<List<Advert>>(_advertDal.GetAll());
         }
-
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsById(int id)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetailsById(id));
+        }
         public IDataResult<List<AdvertDetailDto>> GetAllDetails()
         {
             return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails());
@@ -49,6 +53,14 @@ namespace Busines.Concrete
         {
             _advertDal.Update(advert);
             return new SuccessResult();
+        }
+
+        public IDataResult<List<AdvertDetailDto>> GetAllAdvertsByAsc()
+        {
+            var allDatas = _advertDal.GetAdvertDetails();
+           allDatas.Sort((a, b) => b.Price.CompareTo(a.Price));
+
+            return new SuccessDataResult<List<AdvertDetailDto>>(allDatas);
         }
     }
 }

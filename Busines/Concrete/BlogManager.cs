@@ -40,6 +40,11 @@ namespace Busines.Concrete
             return new SuccessDataResult<List<BlogDetailDto>>(_blogDal.GetAdvertDetails());
         }
 
+        public IDataResult<List<BlogDetailDto>> GetAllDetailsById(int id)
+        {
+            return new SuccessDataResult<List<BlogDetailDto>>(_blogDal.GetAdvertDetails(c => c.Id == id));
+        }
+
         public IDataResult<Blog> GetById(int Id)
         {
             return new SuccessDataResult<Blog>(_blogDal.Get(p => p.Id == Id));
