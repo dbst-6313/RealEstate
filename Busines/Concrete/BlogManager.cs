@@ -20,6 +20,8 @@ namespace Busines.Concrete
         }
         public IResult Add(Blog advert)
         {
+            advert.AddDate = DateTime.Now;
+            advert.UpdateDate = DateTime.Now;
             _blogDal.Add(advert);
             return new SuccessResult();
         }
