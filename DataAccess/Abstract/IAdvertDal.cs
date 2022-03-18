@@ -12,5 +12,6 @@ namespace DataAccess.Abstract
     {
         List<AdvertDetailDto> GetAdvertDetails(Expression<Func<Advert, bool>> filter = null);
         List<AdvertDetailDto> GetAdvertDetailsById(int id);
+        List<AdvertDetailDto> GetAdvertDetailsByCategoryId(int id);
     }
 }
