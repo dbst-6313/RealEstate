@@ -8,6 +8,7 @@ using Entity.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Business.Concrete
 {
@@ -35,8 +36,18 @@ namespace Business.Concrete
                 PasswordSalt = passwordSalt,
 
             };
-            _userService.Add(user);
-            return new SuccessDataResult<User>(user, Messages.AuthRegister);
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(user.Email);
+            if (match.Success)
+            {
+                _userService.Add(user);
+                return new SuccessDataResult<User>(user, Messages.AuthRegister);
+            }
+            else
+            {
+                return new ErrorDataResult<User>("Başarısız");
+            }
+            
         }
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
