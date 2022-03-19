@@ -63,7 +63,6 @@ namespace Core.Utilities.Security.JWT
             claims.AddName($"{user.FirstName} {user.LastName}");
             claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());
         
-            claims.AddPhoneNumber(user.PhoneNumber);
             return claims;
         }
     }
