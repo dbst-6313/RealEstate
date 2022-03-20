@@ -7,6 +7,7 @@ namespace Entity.Concrete
 {
     public class Advert:IEntity
     {
+      
         public int Id { get; set; }
         public string Title { get; set; }
         public int LikeCount { get; set; } = 0;
@@ -14,6 +15,7 @@ namespace Entity.Concrete
         public int BuildTime { get; set; }
         public string ShortDescription { get; set; }
         public int AdvertCategoryId { get; set; }
+        public int AgentId { get; set; }
         public string Location { get; set; }
         public string City { get; set; }
         public string Description { get; set; }

@@ -22,6 +22,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Contact> contact { get; set; }
         public DbSet<Subscriber> subscribers { get; set; }
         public DbSet<User> users { get; set; }
+        public DbSet<Agent> agents { get; set; }
         public DbSet<UserOperationClaim> user_operation_claims { get; set; }
         public DbSet<OperationClaim> operation_claims { get; set; }
     }
