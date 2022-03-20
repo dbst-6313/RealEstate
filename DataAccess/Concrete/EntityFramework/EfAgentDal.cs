@@ -11,7 +11,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfAgentDal : EfEntityRepositoryBase<Agent, RealEstateContext>, IAgentDal
     {
-        public List<AgentDetailDto> GetAdvertDetails(Expression<Func<Agent, bool>> filter = null)
+        public List<AgentDetailDto> GetAgentDetails(Expression<Func<Agent, bool>> filter = null)
         {
             using (var context = new RealEstateContext())
             {
