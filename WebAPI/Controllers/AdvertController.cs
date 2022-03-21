@@ -125,5 +125,85 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getalldetailsbybuildtime")]
+        public IActionResult GetAllDetailsByBuildTime(int buildTime)
+        {
+            var result = _AdvertService.GetAllDetailsByBuildTime(buildTime);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldetailsbyminmax")]
+        public IActionResult GetAllDetailsByMinMax(int min,int max)
+        {
+            var result = _AdvertService.GetAllDetailsByMinMax(min,max);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldetailsbycity")]
+        public IActionResult GetAllDetailsByCity(string city)
+        {
+            var result = _AdvertService.GetAllDetailsByCity(city);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldetailsbycityandminmax")]
+        public IActionResult GetAllDetailsByCityAndMinMax(string city, int min, int max)
+        {
+            var result = _AdvertService.GetAllDetailsByCityAndMinMax(city,min,max);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldetailsbybuildtimeandminmax")]
+        public IActionResult GetAllDetailsByBuildTimeAndMinMax(int buildTime, int min, int max)
+        {
+            var result = _AdvertService.GetAllDetailsByMinMaxAndBuildTime(min,max,buildTime);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldetailsbybuildtimeandminmaxandcity")]
+        public IActionResult GetAllDetailGetAllDetailsByCityAndMinMaxAndBuildTimesById(int buildTime, int min, int max,string city)
+        {
+            var result = _AdvertService.GetAllDetailsByCityAndMinMaxAndBuildTime(city,min,max,buildTime);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getalldetailsbybuildtimeandcity")]
+        public IActionResult GetAllDetailsByBuildTimeAndCity(int buildTime,string city)
+        {
+            var result = _AdvertService.GetAllDetailsByBuildTimeAndCity(buildTime,city);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+       
+
     }
 }

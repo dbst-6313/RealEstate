@@ -74,6 +74,40 @@ namespace Busines.Concrete
             return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetailsByCategoryId(categoryId));
         }
 
-       
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByBuildTime(int buildTime)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a => a.BuildTime == buildTime));
+        }
+
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByCityAndMinMax(string city, int min, int max)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a => a.Price >= min && a.Price <= max && a.City == city));
+        }
+    
+
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByCityAndMinMaxAndBuildTime(string city, int min, int max, int buildTime)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a => a.Price >= min && a.Price <= max && a.BuildTime == buildTime && a.City == city));
+        }
+
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByMinMaxAndBuildTime(int min, int max, int buildTime)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a => a.Price >= min && a.Price <= max &&a.BuildTime == buildTime));
+        }
+
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByBuildTimeAndCity(int buildTime, string city)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a => a.BuildTime == buildTime && a.City == city));
+        }
+
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByCity(string city)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a => a.City == city));
+        }
+
+        public IDataResult<List<AdvertDetailDto>> GetAllDetailsByMinMax(int min, int max)
+        {
+            return new SuccessDataResult<List<AdvertDetailDto>>(_advertDal.GetAdvertDetails(a => a.Price >= min && a.Price <= max));
+        }
     }
 }
