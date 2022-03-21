@@ -50,7 +50,7 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("getall")]
-        public IActionResult GetAll(Agent agent)
+        public IActionResult GetAll()
         {
             var result = _agentService.GetAll();
             if (result.Success)
@@ -60,7 +60,7 @@ namespace WebApi.Controllers
             return BadRequest(result);
         }
         [HttpGet("getalldetails")]
-        public IActionResult GetAllDetails(Agent agent)
+        public IActionResult GetAllDetails()
         {
             var result = _agentService.GetAllDetails();
             if (result.Success)
